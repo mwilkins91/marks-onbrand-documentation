@@ -919,13 +919,37 @@ var _prismjs2 = _interopRequireDefault(_prismjs);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var resetPages = function resetPages() {
+	Array.from(document.querySelectorAll('article.cardsList')).forEach(function (element) {
+		element.style.display = 'none';
+	});
+};
+
+var resetSubMenus = function resetSubMenus() {
+	Array.from(document.querySelectorAll('ul.sub-menu')).forEach(function (element) {
+		return element.style.display = 'none';
+	});
+};
+
+var resetPageLinks = function resetPageLinks() {
+	Array.from(document.querySelectorAll('.inPageLink')).forEach(function (element) {
+		return element.classList.remove('is-active');
+	});
+};
+
 var changeArticle = function changeArticle(e) {
 	e.preventDefault();
 	var target = e.target.dataset.for;
-	Array.from(document.querySelectorAll('article.cardsList')).forEach(function (element) {
-		return element.style.display = 'none';
-	});
-	document.getElementById(target).style.display = 'block';
+	var $target = document.getElementById(target);
+
+	resetPages();
+	$target.style.display = 'block';
+
+	resetSubMenus();
+	e.target.parentNode.querySelector('ul.sub-menu').style.display = 'block';
+
+	resetPageLinks();
+	e.target.classList.add('is-active');
 };
 
 var init = function init(e) {
@@ -935,7 +959,7 @@ var init = function init(e) {
 };
 
 document.addEventListener('DOMContentLoaded', init);
-},{"prismjs":31}],32:[function(require,module,exports) {
+},{"prismjs":31}],37:[function(require,module,exports) {
 
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
@@ -1056,5 +1080,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.require, id);
   });
 }
-},{}]},{},[32,30])
+},{}]},{},[37,30])
 //# sourceMappingURL=/dist/marksOnbrandStuff.map

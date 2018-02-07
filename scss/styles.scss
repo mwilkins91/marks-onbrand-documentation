@@ -3,7 +3,18 @@
 
 aside.column {
     flex-shrink: 1;
-    flex-grow: 0;
+    flex-grow: 1;
+}
+
+main.column {
+    width: 100%;
+    min-width: 0;
+    flex-grow: 3;
+}
+
+pre {
+    max-width: 100%;
+    overflow-x: scroll;
 }
 
 .cardsList>ul {
@@ -19,4 +30,8 @@ aside.column {
 
 .bold {
     font-weight: bold;
+}
+
+article .card {
+    margin-bottom: 30px;
 }
