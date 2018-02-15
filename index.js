@@ -13,7 +13,7 @@ const resetSubMenus = function() {
 };
 
 const resetPageLinks = function() {
-	Array.from(document.querySelectorAll('.inPageLink')).forEach(element =>
+	Array.from(document.getElementsByClassName('inPageLink')).forEach(element =>
 		element.classList.remove('is-active')
 	);
 };
@@ -27,7 +27,9 @@ const changeArticle = function(e) {
 	$target.style.display = 'block';
 
 	resetSubMenus();
-	e.target.parentNode.querySelector('ul.sub-menu').style.display = 'block';
+	if (e.target.parentNode.querySelector('ul.sub-menu')) {
+		e.target.parentNode.querySelector('ul.sub-menu').style.display = 'block';
+	}
 
 	resetPageLinks();
 	e.target.classList.add('is-active');
